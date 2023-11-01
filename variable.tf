@@ -13,3 +13,7 @@ variable "target_id" {
   type        = string
   description = "The unique identifier (ID) of the organization root, organizational unit, or account number that you want to attach the policy to"
 }
+variable "name"{
+  type=string
+  default="scp"
+}

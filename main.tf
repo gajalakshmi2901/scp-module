@@ -36,10 +36,9 @@ data "aws_iam_policy_document" "this" {
 
 resource "aws_organizations_policy" "this" {
   count       = module.this.enabled && length(var.service_control_policy_statements) > 0 ? 1 : 0
-  name        = module.this.id
+  name        = var.name
   description = var.service_control_policy_description
   content     = local.service_control_policy_json
-  tags        = module.this.tags
 }
 
 resource "aws_organizations_policy_attachment" "this" {
